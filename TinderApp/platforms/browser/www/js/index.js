@@ -60,6 +60,9 @@ db.transaction(
 		onReadyTransaction
 	)	
 	
+
+
+// sigin up button to redirect to signup page
 if(document.getElementById("signup-btn")){
 	document.getElementById("signup-btn").addEventListener("click", signup);
 
@@ -72,6 +75,7 @@ function signup() {
 }
 }
 
+//signup  button to insert data
 if(document.getElementById("signup-in")){
 //Sign Up Data insert
 document.getElementById("signup-in").addEventListener("click", a);
@@ -118,11 +122,12 @@ function login() {
 	var email = document.getElementById("email").value;
 	var psw = document.getElementById("psw").value;
 	
-	//select query to get all user data
+	//Sql
 	db.transaction(
 		function(query){
 			var sql = "SELECT email,password FROM users where email = '"+email+"' and password ='"+psw+"' ";
 			query.executeSql( sql,[],
+			displayResults,
 			onSuccessExecuteSql,
 			onError )
 		},
@@ -130,11 +135,24 @@ function login() {
 		onReadyTransaction
 	)
 	
+	
+	
+	
 	// if count 1 then redirect home.html else login failed
+	function displayResults( tx, results ){
+		
+		if(results.rows.length == 0) {
+			console.log("failed");
+			alert("Failed");
+			return false;
+		}
+		else{
+			console.log("Login Successful");
+			alert("Login Successful");
+		}
+		
+	
 	
 }
 }
-
-
-
-
+}
