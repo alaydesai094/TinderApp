@@ -139,7 +139,7 @@ function login() {
 	
 	
 	// if count 1 then redirect home.html else login failed
-	function displayResults( tx, results ){
+	function displayResults( query, results ){
 		
 		if(results.rows.length == 0) {
 			console.log("failed");
@@ -149,9 +149,8 @@ function login() {
 		else{
 			console.log("Login Successful");
 			alert("Login Successful");
+			
 		}
-		
-	
 	
 }
 }
