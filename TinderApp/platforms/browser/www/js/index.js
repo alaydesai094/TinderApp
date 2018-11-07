@@ -58,21 +58,10 @@ db.transaction(
 		},
 		onError,
 		onReadyTransaction
-	)
-
-	db.transaction(
-		function(query){
-			var sql = "INSERT INTO users (email,password,name,Dob,Location) VALUES(?,?,?,?,?)";
-			query.executeSql( sql,['alaydesai094@gmail.com','1234','Alay','09-05-1994','Toronto'],
-			onSuccessExecuteSql,
-			onError )
-		},
-		onError,
-		onReadyTransaction
-	)
+	)	
 	
-	
-document.getElementById("signup-btn").addEventListener("click", signup);
+if(document.getElementById("signup-btn")){
+	document.getElementById("signup-btn").addEventListener("click", signup);
 
 function signup() {
   // debug:
@@ -81,4 +70,71 @@ function signup() {
 	window.location.href = "signup.html";
 	
 }
+}
+
+if(document.getElementById("signup-in")){
+//Sign Up Data insert
+document.getElementById("signup-in").addEventListener("click", a);
+
+function a() {
+	
+	//Getting input from the sign up page
+	var email = document.getElementById("email").value;
+	var psw = document.getElementById("psw").value;
+	var name = document.getElementById("name").value;
+	var dob = document.getElementById("dob").value;
+	var location = document.getElementById("location").value;
+	
+  // debug:
+  console.log("signup button pressed!");
+  alert("signup button pressed!");
+	
+	//Sql
+	db.transaction(
+		function(query){
+			var sql = "INSERT INTO users (email,password,name,Dob,Location) VALUES ('"+email+"','"+psw+"','"+name+"','"+dob+"','"+location+"')";
+			query.executeSql( sql,[],
+			onSuccessExecuteSql,
+			onError )
+		},
+		onError,
+		onReadyTransaction
+	)
+	//redirect back
+	window.location.href = "index.html";
+	
+}
+}
+
+if(document.getElementById("login-btn")){
+	document.getElementById("login-btn").addEventListener("click", login);
+
+function login() {
+  // debug:
+  console.log("login button pressed!");
+  alert("login button pressed!");
+	
+	//Getting input from the sign up page
+	var email = document.getElementById("email").value;
+	var psw = document.getElementById("psw").value;
+	
+	//select query to get all user data
+	db.transaction(
+		function(query){
+			var sql = "SELECT email,password FROM users where email = '"+email+"' and password ='"+psw+"' ";
+			query.executeSql( sql,[],
+			onSuccessExecuteSql,
+			onError )
+		},
+		onError,
+		onReadyTransaction
+	)
+	
+	// if count 1 then redirect home.html else login failed
+	
+}
+}
+
+
+
 
