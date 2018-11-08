@@ -1,6 +1,5 @@
 document.addEventListener("deviceready", connectToDatabase);
 
-
 var db = null; 
 db = window.openDatabase("tinder", "1.0", "Tinder App", 2 * 1024 * 1024);
 
@@ -46,11 +45,11 @@ function onReadyTransaction( ){
 		console.log( err )
 	}
 
-// CREATE DB
+// CREATE Users Table
 db.transaction(
 		function(query){
 		query.executeSql(
-				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, Dob DATE, Location TEXT )",
+				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, Dob DATE, Location TEXT, Contact INTEGER, Description TEXT, Photo TEXT )",
 				[],
 				onSuccessExecuteSql,
 				onError
@@ -60,8 +59,6 @@ db.transaction(
 		onReadyTransaction
 	)	
 	
-
-
 // sigin up button to redirect to signup page
 if(document.getElementById("signup-btn")){
 	document.getElementById("signup-btn").addEventListener("click", signup);
@@ -122,6 +119,11 @@ function login() {
 	var email = document.getElementById("email").value;
 	var psw = document.getElementById("psw").value;
 	
+		localStorage.setItem("email",email);
+		console.log(localStorage.getItem("email"));
+  		alert(localStorage.getItem("email"));
+	
+	
 	//Sql
 	db.transaction(
 		function(query){
@@ -159,12 +161,32 @@ function login() {
 }
 
 if(document.getElementById("finish")){
-document.getElementById("finish").addEventListener("click",takePhoto);
-
-function takePhoto() {
+document.getElementById("finish").addEventListener("click",finish);
+	
+var c = document.getElementById("c").value;
+var descp = document.getElementById("descp").value;
+var email = localStorage.getItem("email");
+	
+function finish() {
   console.log("finish");
-  alert("finish");
-window.location.href = "";	
+	console.log("email :"+email);
+  alert("finish : " +email);
+	
+	//Sql
+	db.transaction(
+		function(query){
+			var sql = "UPDATE users  SET Contact = '"+c+"' where email = '"+email+"' ";
+			 
+			query.executeSql( sql,[],
+			onSuccessExecuteSql,
+			onError )
+		},
+		onError,
+		onReadyTransaction
+	)
+	alert("finish : " +email);
+	
+window.location.href = "Home.html";	
 }
 }
 
@@ -198,6 +220,7 @@ function takePhoto() {
 
 function onSuccess(filename) {
   // DEBUG: Show the original file name
+var imgdata = JASON.parse(filename)
   console.log("Image path: "  + filename);
   alert("Image path: "  + filename);
 
@@ -269,6 +292,22 @@ if(document.getElementById("pickPhotoButton")){
 
 }
 }
+
+$('.button').click(function(){
+  $('.photo-wrap').addClass('love');
+  $('.photo').addClass('match');
+
+
+setTimeout(function () {
+  $('.photo').removeClass('match');
+  $('.photo-wrap').removeClass('love');
+}, 2000);
+});
+
+
+
+
+
 
 
 
