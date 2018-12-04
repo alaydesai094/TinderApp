@@ -1,3 +1,4 @@
+// ========================================== Connection to DB ==========================================
 document.addEventListener("deviceready", connectToDatabase);
 
 var db = null; 
@@ -45,7 +46,7 @@ function onReadyTransaction( ){
 		console.log( err )
 	}
 
-// CREATE Users Table
+//================================ CREATE Users Table ================================================
 db.transaction(
 		function(query){
 		query.executeSql(
@@ -59,7 +60,7 @@ db.transaction(
 		onReadyTransaction
 	)	
 	
-// sigin up button to redirect to signup page
+// ==================== sigin up button to redirect to signup page =====================================
 if(document.getElementById("signup-btn")){
 	document.getElementById("signup-btn").addEventListener("click", signup);
 
@@ -72,8 +73,8 @@ function signup() {
 }
 }
 
-//signup  button to insert data
-if(document.getElementById("signup-in")){
+// ========================== signup  button to insert data =============================================
+ if(document.getElementById("signup-in")){
 //Sign Up Data insert
 document.getElementById("signup-in").addEventListener("click", a);
 
@@ -107,6 +108,8 @@ function a() {
 }
 }
 
+ // ======================================= Login =======================================================
+ 
 if(document.getElementById("login-btn")){
 	document.getElementById("login-btn").addEventListener("click", login);
 
@@ -160,6 +163,8 @@ function login() {
 }
 }
 
+// =============================== update profile code ==========================================================
+
 if(document.getElementById("finish")){
 document.getElementById("finish").addEventListener("click",finish);
 	
@@ -193,11 +198,16 @@ window.location.href = "Home.html";
 
 
 
+
+
 document.addEventListener("devcieready", doNothing);
 
 function doNothing() {
 
 }
+
+
+// ==================================== Camera =======================================================
 
 if(document.getElementById("takePhotoButton")){
 document.getElementById("takePhotoButton").addEventListener("click",takePhoto);
@@ -305,7 +315,96 @@ setTimeout(function () {
 });
 
 
+// ============================================= Show User Profile =======================================
 
+function profile() {
+   
+}
+
+
+// ============================================ like dislike ===============================================
+
+
+// 1. Create a global variable (peopleDB) that stores all the people in your system
+// --------------------------------------------
+var peopleDB = [{
+  "id":1,
+  "name":"pritesh"
+  "location": "montreal"
+  "photo" : "abc.jpg"
+},
+{
+  "id":2,
+  "name":"jigesha"
+  "location": "toronto"
+  "photo" : "abc.jpg"
+},
+{
+  "id":3,
+  "name":"emad"
+  "location": "toronto"
+  "photo" : "abc.jpg"
+},
+{
+  "id":4,
+  "name":"jenelle"
+  "location": "toronto"
+  "photo" : "abc.jpg"
+}]
+
+// 2. Create another global variable that stores the people near the user
+// --------------------------------------------
+var peopleNearMe = []
+
+// 3. When the device is ready / loads --> do your stuff
+// --------------------------------------------
+document.addEventListener("deviceReady", showPeople)
+function showPeople() {
+  // step 3A: get the person's location
+  // --------------------------------------------
+  var myLocation = "toronto";   // write a function to do it getLocatiion()
+
+  // step 3b: Get the list of "disliked" people
+  // In example below, I use localStorage.
+  // But logically, you should get it from an SQL database
+  // --------------------------------------------
+  var dislikedPeople = localstorage.getItem("dislikedPeople");
+
+  // step 3c: Loop through the global people array (people db)
+  // and search for people near the user.
+  // --------------------------------------------
+  for (int i = 0; i < peopleDB.length; i++) {
+    // check if the location is the same
+    if (peopleDb[i].location == myLocation) {
+      // check if the person is in the disliked list
+      if (peopleDB[i] in dislikedPeople) {
+        continue // skkip
+      }
+      else {
+        // add the person to the peopleNearMe array
+        peopleNearMe.push(peopleDb[i]);
+      }
+    }
+  }
+
+  // show the people in the user intefface
+  document.getElementById.innerHTML = pepleNearMe[randomNumber].name
+
+}
+
+
+// Step 4:  Create a list of "disliked" people
+// --------------------------------------------
+var peopleIHate = []
+function swipeLeft() {
+  // this means i dislike the person!!!
+  peopleIhate.push(peopleNearMe[3].id);
+
+  // for simplicity, i use local storage.
+  // But logically, it you should store it in an SQL database so it persists
+  localStorage.setItem("dislikedPeople", JSON.stringify(peopleIHate))
+
+}
 
 
 
