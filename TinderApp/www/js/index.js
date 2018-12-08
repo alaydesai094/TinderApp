@@ -1,4 +1,8 @@
-// ========================================== Connection to DB ==========================================
+
+
+//  															----------------------: Connection to DB :---------------------------- 
+
+
 document.addEventListener("deviceready", connectToDatabase);
 
 var db = null; 
@@ -9,6 +13,7 @@ function connectToDatabase() {
   // 2. open the database. The code is depends on your platform!
   if (window.cordova.platformId === 'browser') {
     console.log("browser detected...");
+	   
     // For browsers, use this syntax:
       //(nameOfDb, version number, description, db size)
     // By default, set version to 1.0, and size to 2MB
@@ -41,16 +46,24 @@ function onReadyTransaction( ){
 	function onSuccessExecuteSql( tx, results ){
 		console.log( 'Execute SQL completed' );
 	alert( "Execute SQL completed" );
+		
+	if(document.getElementById("home")){
+							showAllPressed()
+					}
+//------------------------------------------------------------------------------		
+		
 	}
 	function onError( err ){
 		console.log( err )
 	}
-
-//================================ CREATE Users Table ================================================
+	
+//															----------------------: CREATE Users Table :---------------------- 
+	
+	
 db.transaction(
 		function(query){
 		query.executeSql(
-				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, Dob DATE, Location TEXT, Contact INTEGER, Description TEXT, Photo TEXT )",
+				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, age TEXT, Location TEXT, Contact TEXT )",
 				[],
 				onSuccessExecuteSql,
 				onError
@@ -60,7 +73,8 @@ db.transaction(
 		onReadyTransaction
 	)	
 	
-// ==================== sigin up button to redirect to signup page =====================================
+//   														---------------------: sigin up button to redirect to signup page :----------------------  
+	
 if(document.getElementById("signup-btn")){
 	document.getElementById("signup-btn").addEventListener("click", signup);
 
@@ -73,7 +87,9 @@ function signup() {
 }
 }
 
-// ========================== signup  button to insert data =============================================
+//  		  														---------------------:  signup  button to insert data :---------------------- 
+
+
  if(document.getElementById("signup-in")){
 //Sign Up Data insert
 document.getElementById("signup-in").addEventListener("click", a);
@@ -84,8 +100,9 @@ function a() {
 	var email = document.getElementById("email").value;
 	var psw = document.getElementById("psw").value;
 	var name = document.getElementById("name").value;
-	var dob = document.getElementById("dob").value;
+	var age = document.getElementById("age").value;
 	var location = document.getElementById("location").value;
+	var contact = document.getElementById("contact").value;
 	
   // debug:
   console.log("signup button pressed!");
@@ -94,7 +111,7 @@ function a() {
 	//Sql
 	db.transaction(
 		function(query){
-			var sql = "INSERT INTO users (email,password,name,Dob,Location) VALUES ('"+email+"','"+psw+"','"+name+"','"+dob+"','"+location+"')";
+			var sql = "INSERT INTO users (email,password,name,age,Location,Contact) VALUES ('"+email+"','"+psw+"','"+name+"','"+age+"','"+location+"','"+contact+"')";
 			query.executeSql( sql,[],
 			onSuccessExecuteSql,
 			onError )
@@ -108,7 +125,9 @@ function a() {
 }
 }
 
- // ======================================= Login =======================================================
+ //  		  																		---------------------:  Login :----------------------   
+ 
+ 
  
 if(document.getElementById("login-btn")){
 	document.getElementById("login-btn").addEventListener("click", login);
@@ -163,39 +182,28 @@ function login() {
 }
 }
 
-// =============================== update profile code ==========================================================
+ //  		  																		---------------------:  Complete profile code  :----------------------
+
 
 if(document.getElementById("finish")){
 document.getElementById("finish").addEventListener("click",finish);
 	
-var c = document.getElementById("c").value;
-var descp = document.getElementById("descp").value;
 var email = localStorage.getItem("email");
+//var location = document.getElementById("location").value;
 	
 function finish() {
   console.log("finish");
 	console.log("email :"+email);
   alert("finish : " +email);
 	
-	//Sql
-	db.transaction(
-		function(query){
-			var sql = "UPDATE users  SET Contact = '"+c+"' where email = '"+email+"' ";
-			 
-			query.executeSql( sql,[],
-			onSuccessExecuteSql,
-			onError )
-		},
-		onError,
-		onReadyTransaction
-	)
-	alert("finish : " +email);
-	
+	//Next Page
 window.location.href = "Home.html";	
 }
 }
 
 
+
+// --------------------------------------------------------------------------------------
 
 
 
@@ -207,7 +215,8 @@ function doNothing() {
 }
 
 
-// ==================================== Camera =======================================================
+//  		  																		---------------------:  Camera   :----------------------
+ 
 
 if(document.getElementById("takePhotoButton")){
 document.getElementById("takePhotoButton").addEventListener("click",takePhoto);
@@ -230,7 +239,7 @@ function takePhoto() {
 
 function onSuccess(filename) {
   // DEBUG: Show the original file name
-var imgdata = JASON.parse(filename)
+
   console.log("Image path: "  + filename);
   alert("Image path: "  + filename);
 
@@ -266,7 +275,7 @@ var imgdata = JASON.parse(filename)
     // DEBUG STATEMENT
     alert(localStorage);
  }
- // -----------
+ // ---------------------------------------------------------------------------
 
 
 
@@ -301,7 +310,6 @@ if(document.getElementById("pickPhotoButton")){
 
 
 }
-}
 
 $('.button').click(function(){
   $('.photo-wrap').addClass('love');
@@ -313,99 +321,89 @@ setTimeout(function () {
   $('.photo-wrap').removeClass('love');
 }, 2000);
 });
-
-
-// ============================================= Show User Profile =======================================
-
-function profile() {
-   
 }
 
+// 		  																		---------------------:  LOGOUT USER FUNCTION    :----------------------
 
-// ============================================ like dislike ===============================================
+if(document.getElementById("logout")){
+document.getElementById("logout").addEventListener("click",logout);
+
+function logout() {
+	console.log("Logging out");
+    localStorage.removeItem("email");
+    alert("Logged Out");
+}}
+
+// 		  																		---------------------:  Display Data   :----------------------
+	
+function showAllPressed() {
+	console.log("Display data found");
+
+    db.transaction(function (transaction) {
+        var userMail = localStorage.getItem("email");
+        transaction.executeSql("SELECT * FROM users where email not in (?)", [userMail],
+                function (tx, results) {
+                    var numRows = results.rows.length;
+
+                    for (var i = 0; i < numRows; i++) {
+
+                        // to get individual items:
+                        var item = results.rows.item(i);
+                        console.log(item);
+                        console.log(item.name);
 
 
-// 1. Create a global variable (peopleDB) that stores all the people in your system
-// --------------------------------------------
-var peopleDB = [{
-  "id":1,
-  "name":"pritesh"
-  "location": "montreal"
-  "photo" : "abc.jpg"
-},
-{
-  "id":2,
-  "name":"jigesha"
-  "location": "toronto"
-  "photo" : "abc.jpg"
-},
-{
-  "id":3,
-  "name":"emad"
-  "location": "toronto"
-  "photo" : "abc.jpg"
-},
-{
-  "id":4,
-  "name":"jenelle"
-  "location": "toronto"
-  "photo" : "abc.jpg"
-}]
+                        // show it in the user interface
+						console.log(item.name);
+                        document.getElementById("Uname").innerHTML +=  item.name;
+						document.getElementById("age").innerHTML +=  item.name;
+						
+						
+  
+                       // alert(item.name);
+                    }
 
-// 2. Create another global variable that stores the people near the user
-// --------------------------------------------
-var peopleNearMe = []
-
-// 3. When the device is ready / loads --> do your stuff
-// --------------------------------------------
-document.addEventListener("deviceReady", showPeople)
-function showPeople() {
-  // step 3A: get the person's location
-  // --------------------------------------------
-  var myLocation = "toronto";   // write a function to do it getLocatiion()
-
-  // step 3b: Get the list of "disliked" people
-  // In example below, I use localStorage.
-  // But logically, you should get it from an SQL database
-  // --------------------------------------------
-  var dislikedPeople = localstorage.getItem("dislikedPeople");
-
-  // step 3c: Loop through the global people array (people db)
-  // and search for people near the user.
-  // --------------------------------------------
-  for (int i = 0; i < peopleDB.length; i++) {
-    // check if the location is the same
-    if (peopleDb[i].location == myLocation) {
-      // check if the person is in the disliked list
-      if (peopleDB[i] in dislikedPeople) {
-        continue // skkip
-      }
-      else {
-        // add the person to the peopleNearMe array
-        peopleNearMe.push(peopleDb[i]);
-      }
-    }
-  }
-
-  // show the people in the user intefface
-  document.getElementById.innerHTML = pepleNearMe[randomNumber].name
-
+                }, function (error) {
+        });
+    });
 }
+//	  																		---------------------:  display userprofile :---------------------- 
 
 
-// Step 4:  Create a list of "disliked" people
-// --------------------------------------------
-var peopleIHate = []
-function swipeLeft() {
-  // this means i dislike the person!!!
-  peopleIhate.push(peopleNearMe[3].id);
+if(document.getElementById("showuser")){
+document.getElementById("showuser").addEventListener("click",showAllPressed);
 
-  // for simplicity, i use local storage.
-  // But logically, it you should store it in an SQL database so it persists
-  localStorage.setItem("dislikedPeople", JSON.stringify(peopleIHate))
+function showAllPressed() {
+	console.log("Display data found");
 
+    db.transaction(function (transaction) {
+        var userMail = "markjohn@gmail.com";
+        transaction.executeSql("SELECT * FROM users where email in (?)", [userMail],
+                function (tx, results) {
+                    var numRows = results.rows.length;
+
+                    for (var i = 0; i < numRows; i++) {
+
+                        // to get individual items:
+                        var item = results.rows.item(i);
+                        console.log(item);
+                        console.log(item.name);
+						
+                        // show it in the user interface
+						console.log(item.name);
+                        document.getElementById("Uname").innerHTML +=  item.name;
+						console.log(item.name);
+                        document.getElementById("age").innerHTML +=  item.age;
+						
+  
+                       // alert(item.name);
+                    }
+
+                }, function (error) {
+        });
+    });
 }
-
+}
 
 
 

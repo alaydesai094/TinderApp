@@ -1,3 +1,8 @@
+
+
+//  															----------------------: Connection to DB :---------------------------- 
+
+
 document.addEventListener("deviceready", connectToDatabase);
 
 var db = null; 
@@ -8,6 +13,7 @@ function connectToDatabase() {
   // 2. open the database. The code is depends on your platform!
   if (window.cordova.platformId === 'browser') {
     console.log("browser detected...");
+	   
     // For browsers, use this syntax:
       //(nameOfDb, version number, description, db size)
     // By default, set version to 1.0, and size to 2MB
@@ -40,16 +46,24 @@ function onReadyTransaction( ){
 	function onSuccessExecuteSql( tx, results ){
 		console.log( 'Execute SQL completed' );
 	alert( "Execute SQL completed" );
+		
+	if(document.getElementById("home")){
+							showAllPressed()
+					}
+//------------------------------------------------------------------------------		
+		
 	}
 	function onError( err ){
 		console.log( err )
 	}
-
-// CREATE Users Table
+	
+//															----------------------: CREATE Users Table :---------------------- 
+	
+	
 db.transaction(
 		function(query){
 		query.executeSql(
-				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, Dob DATE, Location TEXT, Contact INTEGER, Description TEXT, Photo TEXT )",
+				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, age TEXT, Location TEXT, Contact TEXT )",
 				[],
 				onSuccessExecuteSql,
 				onError
@@ -59,7 +73,8 @@ db.transaction(
 		onReadyTransaction
 	)	
 	
-// sigin up button to redirect to signup page
+//   														---------------------: sigin up button to redirect to signup page :----------------------  
+	
 if(document.getElementById("signup-btn")){
 	document.getElementById("signup-btn").addEventListener("click", signup);
 
@@ -72,8 +87,10 @@ function signup() {
 }
 }
 
-//signup  button to insert data
-if(document.getElementById("signup-in")){
+//  		  														---------------------:  signup  button to insert data :---------------------- 
+
+
+ if(document.getElementById("signup-in")){
 //Sign Up Data insert
 document.getElementById("signup-in").addEventListener("click", a);
 
@@ -83,8 +100,9 @@ function a() {
 	var email = document.getElementById("email").value;
 	var psw = document.getElementById("psw").value;
 	var name = document.getElementById("name").value;
-	var dob = document.getElementById("dob").value;
+	var age = document.getElementById("age").value;
 	var location = document.getElementById("location").value;
+	var contact = document.getElementById("contact").value;
 	
   // debug:
   console.log("signup button pressed!");
@@ -93,7 +111,7 @@ function a() {
 	//Sql
 	db.transaction(
 		function(query){
-			var sql = "INSERT INTO users (email,password,name,Dob,Location) VALUES ('"+email+"','"+psw+"','"+name+"','"+dob+"','"+location+"')";
+			var sql = "INSERT INTO users (email,password,name,age,Location,Contact) VALUES ('"+email+"','"+psw+"','"+name+"','"+age+"','"+location+"','"+contact+"')";
 			query.executeSql( sql,[],
 			onSuccessExecuteSql,
 			onError )
@@ -107,6 +125,10 @@ function a() {
 }
 }
 
+ //  		  																		---------------------:  Login :----------------------   
+ 
+ 
+ 
 if(document.getElementById("login-btn")){
 	document.getElementById("login-btn").addEventListener("click", login);
 
@@ -160,35 +182,28 @@ function login() {
 }
 }
 
+ //  		  																		---------------------:  Complete profile code  :----------------------
+
+
 if(document.getElementById("finish")){
 document.getElementById("finish").addEventListener("click",finish);
 	
-var c = document.getElementById("c").value;
-var descp = document.getElementById("descp").value;
 var email = localStorage.getItem("email");
+//var location = document.getElementById("location").value;
 	
 function finish() {
   console.log("finish");
 	console.log("email :"+email);
   alert("finish : " +email);
 	
-	//Sql
-	db.transaction(
-		function(query){
-			var sql = "UPDATE users  SET Contact = '"+c+"' where email = '"+email+"' ";
-			 
-			query.executeSql( sql,[],
-			onSuccessExecuteSql,
-			onError )
-		},
-		onError,
-		onReadyTransaction
-	)
-	alert("finish : " +email);
-	
+	//Next Page
 window.location.href = "Home.html";	
 }
 }
+
+
+
+// --------------------------------------------------------------------------------------
 
 
 
@@ -198,6 +213,10 @@ document.addEventListener("devcieready", doNothing);
 function doNothing() {
 
 }
+
+
+//  		  																		---------------------:  Camera   :----------------------
+ 
 
 if(document.getElementById("takePhotoButton")){
 document.getElementById("takePhotoButton").addEventListener("click",takePhoto);
@@ -220,7 +239,7 @@ function takePhoto() {
 
 function onSuccess(filename) {
   // DEBUG: Show the original file name
-var imgdata = JASON.parse(filename)
+
   console.log("Image path: "  + filename);
   alert("Image path: "  + filename);
 
@@ -256,7 +275,7 @@ var imgdata = JASON.parse(filename)
     // DEBUG STATEMENT
     alert(localStorage);
  }
- // -----------
+ // ---------------------------------------------------------------------------
 
 
 
@@ -291,7 +310,6 @@ if(document.getElementById("pickPhotoButton")){
 
 
 }
-}
 
 $('.button').click(function(){
   $('.photo-wrap').addClass('love');
@@ -303,10 +321,89 @@ setTimeout(function () {
   $('.photo-wrap').removeClass('love');
 }, 2000);
 });
+}
+
+// 		  																		---------------------:  LOGOUT USER FUNCTION    :----------------------
+
+if(document.getElementById("logout")){
+document.getElementById("logout").addEventListener("click",logout);
+
+function logout() {
+	console.log("Logging out");
+    localStorage.removeItem("email");
+    alert("Logged Out");
+}}
+
+// 		  																		---------------------:  Display Data   :----------------------
+	
+function showAllPressed() {
+	console.log("Display data found");
+
+    db.transaction(function (transaction) {
+        var userMail = localStorage.getItem("email");
+        transaction.executeSql("SELECT * FROM users where email not in (?)", [userMail],
+                function (tx, results) {
+                    var numRows = results.rows.length;
+
+                    for (var i = 0; i < numRows; i++) {
+
+                        // to get individual items:
+                        var item = results.rows.item(i);
+                        console.log(item);
+                        console.log(item.name);
 
 
+                        // show it in the user interface
+						console.log(item.name);
+                        document.getElementById("Uname").innerHTML +=  item.name;
+						document.getElementById("age").innerHTML +=  item.name;
+						
+						
+  
+                       // alert(item.name);
+                    }
+
+                }, function (error) {
+        });
+    });
+}
+//	  																		---------------------:  display userprofile :---------------------- 
 
 
+if(document.getElementById("showuser")){
+document.getElementById("showuser").addEventListener("click",showAllPressed);
+
+function showAllPressed() {
+	console.log("Display data found");
+
+    db.transaction(function (transaction) {
+        var userMail = "markjohn@gmail.com";
+        transaction.executeSql("SELECT * FROM users where email in (?)", [userMail],
+                function (tx, results) {
+                    var numRows = results.rows.length;
+
+                    for (var i = 0; i < numRows; i++) {
+
+                        // to get individual items:
+                        var item = results.rows.item(i);
+                        console.log(item);
+                        console.log(item.name);
+						
+                        // show it in the user interface
+						console.log(item.name);
+                        document.getElementById("Uname").innerHTML +=  item.name;
+						console.log(item.name);
+                        document.getElementById("age").innerHTML +=  item.age;
+						
+  
+                       // alert(item.name);
+                    }
+
+                }, function (error) {
+        });
+    });
+}
+}
 
 
 

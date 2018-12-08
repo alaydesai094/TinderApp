@@ -27,19 +27,35 @@
     <h1>User Profile Update</h1>
     <p>Please fill in this form to update your information.</p>
     <hr>
+<p id="showuser">
+	
+</p>
 
-    <label for="desc"><b>Description</b></label>
-    <input type="email" placeholder="Enter Email" id="email" name="email" required><br>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" id="email" name="email" required><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" required><br>
 
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" id="name" name="name" required><br>
 
+	<label for="age"><b>Age</b></label>
+    <input type="text" placeholder="Enter Age" id="age"  name="age" required><br>
+	
+	<label for="gender"><b>Gender</b></label>
+    <input type="text" placeholder="Enter gender" id="gender"  name="gender" required><br>
+	
+	<label for="contact"><b>Contact</b></label>
+    <input type="text" placeholder="Enter contact" id="contact"  name="contact" required><br>
+
 	<label for="location"><b>Location</b></label>
     <input type="text" placeholder="Enter Location" id="location"  name="location" required><br>
 
+
       <button class="ui-btn" id="userprofile"> Update </button>
 
-	    <button class="ui-btn ui-shadow">Cancel</button>
+	    <button class="ui-btn ui-shadow" id="up_cancel">Cancel</button>
 
 </form>
 
