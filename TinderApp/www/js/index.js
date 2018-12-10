@@ -46,9 +46,12 @@ function onReadyTransaction( ){
 	function onSuccessExecuteSql( tx, results ){
 		console.log( 'Execute SQL completed' );
 	alert( "Execute SQL completed" );
+	// display all profile	
+	var email = localStorage.getItem("email");
 		
 	if(document.getElementById("home")){
 							showAllPressed()
+		console.log( "showAllPressed" );
 					}
 //------------------------------------------------------------------------------		
 		
@@ -63,7 +66,7 @@ function onReadyTransaction( ){
 db.transaction(
 		function(query){
 		query.executeSql(
-				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, age TEXT, Location TEXT, Contact TEXT )",
+				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, age TEXT, location TEXT, contact TEXT )",
 				[],
 				onSuccessExecuteSql,
 				onError
@@ -111,7 +114,7 @@ function a() {
 	//Sql
 	db.transaction(
 		function(query){
-			var sql = "INSERT INTO users (email,password,name,age,Location,Contact) VALUES ('"+email+"','"+psw+"','"+name+"','"+age+"','"+location+"','"+contact+"')";
+			var sql = "INSERT INTO users (email,password,name,age,location,contact) VALUES ('"+email+"','"+psw+"','"+name+"','"+age+"','"+location+"','"+contact+"')";
 			query.executeSql( sql,[],
 			onSuccessExecuteSql,
 			onError )
@@ -334,8 +337,62 @@ function logout() {
     alert("Logged Out");
 }}
 
-// 		  																		---------------------:  Display Data   :----------------------
+
+	//	  																		---------------------:  Display userprofile :---------------------- 
+		
+
+if(document.getElementById("updateProfile")){
+document.getElementById("updateProfile").addEventListener("click",userData);
+						
+var userMail = localStorage.getItem("email");
 	
+function userData() {
+	console.log("Display data found");
+		
+		//Sql 
+	db.transaction(
+		function(query){
+			var sql = "SELECT * FROM users where email =? ";
+			query.executeSql( sql,[userMail],
+			displayResults,
+			onSuccessExecuteSql,
+			onError )
+		},
+		onError,
+		onReadyTransaction
+	)
+	
+	
+	var numRows = results.rows.length;
+
+                    for (var i = 0; i < numRows; i++) {
+
+                        // to get individual items:
+                        var item = results.rows.item(i);
+                        console.log(item);
+                        console.log(item.name);
+						
+                        // show it in the user interface
+						console.log(item.name);
+                        document.getElementById("email").innerHTML +=  item.email;
+						console.log(item.name);
+                          document.getElementById("psw").innerHTML +=  item.password;
+						  document.getElementById("name").innerHTML +=  item.name;
+						  document.getElementById("age").innerHTML +=  item.age;
+						  document.getElementById("location").innerHTML +=  item.location;
+						  document.getElementById("contat").innerHTML +=  item.contact;
+						
+						
+  
+                       // alert(item.name);
+                    }
+}
+}
+
+	//	  							---------------------:  Show other Profiles :---------------------- 
+  
+
+var i = 0;
 function showAllPressed() {
 	console.log("Display data found");
 
@@ -343,68 +400,44 @@ function showAllPressed() {
         var userMail = localStorage.getItem("email");
         transaction.executeSql("SELECT * FROM users where email not in (?)", [userMail],
                 function (tx, results) {
-                    var numRows = results.rows.length;
 
-                    for (var i = 0; i < numRows; i++) {
-
-                        // to get individual items:
-                        var item = results.rows.item(i);
-                        console.log(item);
-                        console.log(item.name);
-
-
-                        // show it in the user interface
-						console.log(item.name);
-                        document.getElementById("Uname").innerHTML +=  item.name;
-						document.getElementById("age").innerHTML +=  item.name;
-						
-						
-  
-                       // alert(item.name);
-                    }
-
-                }, function (error) {
-        });
-    });
-}
-//	  																		---------------------:  display userprofile :---------------------- 
-
-
-if(document.getElementById("showuser")){
-document.getElementById("showuser").addEventListener("click",showAllPressed);
-
-function showAllPressed() {
-	console.log("Display data found");
-
-    db.transaction(function (transaction) {
-        var userMail = "markjohn@gmail.com";
-        transaction.executeSql("SELECT * FROM users where email in (?)", [userMail],
-                function (tx, results) {
-                    var numRows = results.rows.length;
-
-                    for (var i = 0; i < numRows; i++) {
 
                         // to get individual items:
                         var item = results.rows.item(i);
                         console.log(item);
                         console.log(item.name);
 						
-                        // show it in the user interface
-						console.log(item.name);
-                        document.getElementById("Uname").innerHTML +=  item.name;
-						console.log(item.name);
-                        document.getElementById("age").innerHTML +=  item.age;
+								//show it in the user interface
+								    document.getElementById("dbItems").innerHTML +=
+                                "<p>Name: " + item.name + "</p>"
+                                + "<p>Email : " + item.age + "</p>"
+                                + "<p><IMG SRC = 'img/logo.png' class = 'profile-img'></p>"
+                                + "<p>=======================</p>";
+                                // alert(item.name);
+                 
+                   
 						
+								
   
                        // alert(item.name);
-                    }
 
                 }, function (error) {
         });
     });
 }
-}
+	
+	//	  							---------------------:  Dislike button pressed :---------------------- 
 
+if(document.getElementById("dislike-btn")){
+							document.getElementById("dislike-btn").addEventListener("click",dislike);
+	function dislike() {
+	console.log("dislike button pressed");
+	i = i + 1 ;
+		showAllPressed()
+		
+ 
+}}	   
+           
 
 
 
