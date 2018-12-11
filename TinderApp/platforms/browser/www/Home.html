@@ -17,24 +17,21 @@
         <title>Tinder</title>
     </head>
     <body id = "home">
-     		<div data-role="page" data-theme="d">
+     		<div data-role="page" data-theme="d" class="center">
 		        
 					<div data-role="navbar">
              				 <ul>
-                						<li><a href="userprofile.html" id = "updateProfile"><h3>User Profile</h3></a></li>
+                						<li><a href="userprofile.html"><h3>User Profile</h3></a></li>
 			          				<li><a href="home.html"><h3>Tinder</h3></a></li>
                 						<li><a href="index.html" id="logout"><h3>logout</h3></a></li>
             					</ul>
             			</div>
-						
-						<div id = dbItems>
-											
-					</div>
-					<div>
-								<h3><span id="name" class="left">Alay</span><span id="age" class="right">21</span></h3>
-					</div>
-									    
-						
+							<div>
+								<h3><span  class="left">Showing people from : </span><span id="loc"></span></h3>
+							</div>
+  														<div id = dbItems  >
+   																		
+ 													 </div>						
 						
 					<div>
   									 <button class="ui-btn" id="like-btn"> Like</button>

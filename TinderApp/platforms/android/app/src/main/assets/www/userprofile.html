@@ -12,11 +12,20 @@
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
 			<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 			<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
 
 
         <title>Tinder</title>
     </head>
     <body>
+	
+		<script>
+		
+	
+
+			</script>
+
+	
      		<div data-role="page" data-theme="d">
 		<div data-role="header">
 			<h1>Tinder</h1>
@@ -30,17 +39,28 @@
 <p id="showuser">
 	
 </p>
-    <label for="desc"><b>Description</b></label>
-    <input type="email" placeholder="Enter Email" id="email" name="email" required><br>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" id="email" name="email" required><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" required><br>
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" id="name" name="name" value="" required><br>
+    <input type="text" placeholder="Enter Name" id="name" name="name" required><br>
 
-<label for="location"><b>Location</b></label>
-    <input type="text" placeholder="Enter Location" id="phone"  name="phone" value="" required><br>
+	<label for="age"><b>Age</b></label>
+    <input type="text" placeholder="Enter Age" id="age"  name="age" required><br>
+	
+	<label for="gender"><b>Gender</b></label>
+    <input type="text" placeholder="Enter gender" id="gender"  name="gender" required><br>
+	
+	<label for="contact"><b>Contact</b></label>
+    <input type="text" placeholder="Enter contact" id="contact"  name="contact" required><br>
 
 	<label for="location"><b>Location</b></label>
-    <input type="text" placeholder="Enter Location" id="location"  name="location"  value=""required><br>
+    <input type="text" placeholder="Enter Location" id="location"  name="location" required><br>
+
 
       <button class="ui-btn" id="userprofile"> Update </button>
 
@@ -59,5 +79,6 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+		
     </body>
 </html>

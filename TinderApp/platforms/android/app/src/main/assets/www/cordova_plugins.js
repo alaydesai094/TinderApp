@@ -33,14 +33,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-filepath.FilePath",
-    "file": "plugins/cordova-plugin-filepath/www/FilePath.js",
-    "pluginId": "cordova-plugin-filepath",
-    "clobbers": [
-      "window.FilePath"
-    ]
-  },
-  {
     "id": "cordova-plugin-file.DirectoryEntry",
     "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
     "pluginId": "cordova-plugin-file",
@@ -214,6 +206,14 @@ module.exports = [
     "runs": true
   },
   {
+    "id": "cordova-plugin-filepath.FilePath",
+    "file": "plugins/cordova-plugin-filepath/www/FilePath.js",
+    "pluginId": "cordova-plugin-filepath",
+    "clobbers": [
+      "window.FilePath"
+    ]
+  },
+  {
     "id": "cordova-plugin-geolocation.geolocation",
     "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
     "pluginId": "cordova-plugin-geolocation",
@@ -226,16 +226,25 @@ module.exports = [
     "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
     "pluginId": "cordova-plugin-geolocation",
     "runs": true
+  },
+  {
+    "id": "cordova-sqlite-storage.SQLitePlugin",
+    "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+    "pluginId": "cordova-sqlite-storage",
+    "clobbers": [
+      "SQLitePlugin"
+    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-camera": "4.0.3",
-  "cordova-plugin-filepath": "1.4.2",
   "cordova-plugin-file": "6.0.1",
-  "cordova-plugin-geolocation": "4.0.1"
+  "cordova-plugin-filepath": "1.4.2",
+  "cordova-plugin-geolocation": "4.0.1",
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-sqlite-storage": "2.5.2"
 };
 // BOTTOM OF METADATA
 });
