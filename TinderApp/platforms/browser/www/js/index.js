@@ -8,12 +8,16 @@ document.addEventListener("deviceready", connectToDatabase);
 var db = null; 
 db = window.openDatabase("tinder", "1.0", "Tinder App", 2 * 1024 * 1024);
 
+	
 function connectToDatabase() {
   console.log("device is ready - connecting to database");
   // 2. open the database. The code is depends on your platform!
   if (window.cordova.platformId === 'browser') {
     console.log("browser detected...");
+
+
 	   
+	  
     // For browsers, use this syntax:
       //(nameOfDb, version number, description, db size)
     // By default, set version to 1.0, and size to 2MB
@@ -27,6 +31,20 @@ function connectToDatabase() {
     console.log("done opening db");
 	alert("done opening db");
 
+	db.transaction(
+		function(query){
+		query.executeSql(
+				"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, age TEXT, location TEXT, contact TEXT )",
+				[],
+				onSuccessExecuteSql,
+				onError
+			)
+		},
+		onError,
+		onReadyTransaction
+	)	
+	
+	
 	
   }
 
@@ -42,6 +60,13 @@ function connectToDatabase() {
 function onReadyTransaction( ){
 		console.log( 'Transaction completed' );
 		alert("Transaction completed");
+	
+	if(document.getElementById("updateProfile")){
+							userData()
+		console.log( "Update Profile" );
+					}	
+	
+	
 	}
 	function onSuccessExecuteSql( tx, results ){
 		console.log( 'Execute SQL completed' );
@@ -55,6 +80,7 @@ function onReadyTransaction( ){
 		console.log( "showAllPressed" );
 		console.log( "Showing Current Location" );
 					}
+
 //------------------------------------------------------------------------------		
 		
 	}
@@ -387,14 +413,27 @@ function currentLocation() {
 
 
 	//	  																		---------------------:  Display userprofile :---------------------- 
-		
 
-if(document.getElementById("updateProfile")){
+	
+if(document.getElementById("profile-btn")){
+	document.getElementById("profile-btn").addEventListener("click", profile);
+
+function profile() {
+  // debug:
+  console.log("profile button pressed!");
+  alert("profile button pressed!");
+	window.location.href = "userprofile.html";
+	
+}
+}
+
+
 	
 var userMail = localStorage.getItem("email");
 	
 function userData() {   
-
+			console.log("Into userData");
+	
     db.transaction(function (transaction) {
         transaction.executeSql("SELECT * FROM users where email = ? ", [userMail],
                 
@@ -405,19 +444,21 @@ function userData() {
                         console.log(item.name);
 						
 								//show it in the user interface
+									 document.getElementById("img").innerHTML += "<p><IMG class='resize' SRC = 'img/5.jpg'></p>"; 
 								    document.getElementById("showProfile").innerHTML +=
-                             	"<p><IMG SRC = 'img/1.jpg'></p>" +
 								 "<p>Name: " + item.name + "</p>"
-                                + "<p>Email : " + item.age + "</p>"
-                                + "<p>=======================</p>";
-                                // alert(item.name);
+                                + "<p>Age : " + item.age + "</p>"
+			 					+ "<p>Email : " + item.email + "</p>" 
+								+ "<p>Location : " + item.Location + "</p>"
+								+ "<p>Contact : " + item.Contact + "</p>";
+                            
 						
                     });
 
                 }, function (error) {
         });
 }
-}
+
 
 	//	  																	---------------------:  Show other Profiles :---------------------- 
   
@@ -427,6 +468,7 @@ var a = 0;
 var img = ["img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"]; 
 var peopleIHate = []
 var  dislikepeople = ""
+var x =0;
 
 function showAllPressed() {
 	console.log("Display data found");
@@ -445,19 +487,28 @@ function showAllPressed() {
                        
                         console.log(item);
                         console.log(item.name);
+						var dislikepeps = parseInt(peopleIHate[x]);
 						
-						if (peopleIHate == item) {
+						if (dislikepeps == item.id) {
 							 console.log("skipping");
        					
 							//continue // skkip
       }
 					else{	
+						
+						if (a < img.length) {
+    										
+							}
+						else{
+							a = 0
+						}
+						
 								var image = img[a];
 								//show it in the user interface
 								    document.getElementById("dbItems").innerHTML +=
-								"<img src=' " + image + "  '/>"+
+								"<img class = 'square' src=' " + image + "  '/>"+
 								 "<h3><b> Name: " + item.name + "</b></h3>"
-                                + "<p>Age : " + item.age + "</p>";
+                                + "<h3><b>Age : " + item.age + "</b></h3>";
 							
 						if(document.getElementById("dislike-btn")){
 									localStorage.setItem("people",item.id);

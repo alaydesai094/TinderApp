@@ -1,0 +1,198 @@
+-- Merging decision tree log ---
+provider#org.apache.cordova.camera.FileProvider
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
+	android:grantUriPermissions
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
+	android:authorities
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
+	android:exported
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
+manifest
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+MERGED from [:CordovaLib] C:\tinder\TinderApp\TinderApp\platforms\android\CordovaLib\build\intermediates\manifests\full\release\AndroidManifest.xml:20:1-27:12
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:17:1-31:12
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:102-135
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:74-101
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+	android:hardwareAccelerated
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
+	xmlns:android
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:136-194
+	android:versionCode
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:2:46-73
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+supports-screens
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
+	android:largeScreens
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
+	android:smallScreens
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
+	android:normalScreens
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
+	android:xlargeScreens
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
+	android:resizeable
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
+	android:anyDensity
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
+uses-permission#android.permission.INTERNET
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:5:5-15:19
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:25:5-29:19
+	android:supportsRtl
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
+	android:label
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
+	android:hardwareAccelerated
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+	android:icon
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
+activity#io.cordova.hellocordova.MainActivity
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+	android:label
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
+	android:launchMode
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
+	android:windowSoftInputMode
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
+	android:configChanges
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
+	android:theme
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
+	android:label
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
+action#android.intent.action.MAIN
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+uses-sdk
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+MERGED from [:CordovaLib] C:\tinder\TinderApp\TinderApp\platforms\android\CordovaLib\build\intermediates\manifests\full\release\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] C:\tinder\TinderApp\TinderApp\platforms\android\CordovaLib\build\intermediates\manifests\full\release\AndroidManifest.xml:25:5-44
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:21:5-23:58
+INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:16:42-71
+	android:minSdkVersion
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:16:15-41
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:17:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:18:5-80
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:18:22-77
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:19:5-81
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:19:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:20:5-79
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:20:22-76
+uses-feature#android.hardware.location.gps
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:21:19-63
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
+	android:resource
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
+	android:name
+		ADDED from C:\tinder\TinderApp\TinderApp\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\b43a7e21cdafc81bf4007c11d5df232c\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\17f8de49a394ae7f4b17330180516755\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\244f79cffc1b6bd5efd852e2ba864b95\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\e82112ec7c75c0a0bbbc1af22b973c97\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\b742e5004e7aecb415ecd91b290ea653\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\d4146ef684de4c09071ba3485f74216d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\7639af63448fe5151a0fef7b16430682\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\f6ccd8043377f674aa5b7d93431b6a17\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Alay Desai\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\b1af3c4ef9dc3f4fc04e67efb74ad96d\AndroidManifest.xml:27:13-51
