@@ -24,12 +24,12 @@ function connectToDatabase() {
   // db = window.openDatabase("Tinder", "1.0", "Tinder App",2 * 1024 * 1024);
   }
   else {
-    alert("mobile device detected");
+    //alert("mobile device detected");
     console.log("mobile device detected!");
     var databaseDetails = {"name":"Tinder.db", "location":"default"}
     db = window.sqlitePlugin.openDatabase(databaseDetails);
     console.log("done opening db");
-	alert("done opening db");
+	//alert("done opening db");
 
 	db.transaction(
 		function(query){
@@ -49,7 +49,7 @@ function connectToDatabase() {
   }
 
   if (!db) {
-    alert("databse not opened!");
+    //alert("databse not opened!");
     return false;
   }
 
@@ -59,7 +59,7 @@ function connectToDatabase() {
 // ERROR MESSAGES
 function onReadyTransaction( ){
 		console.log( 'Transaction completed' );
-		alert("Transaction completed");
+		//alert("Transaction completed");
 	
 	if(document.getElementById("updateProfile")){
 							userData()
@@ -70,7 +70,7 @@ function onReadyTransaction( ){
 	}
 	function onSuccessExecuteSql( tx, results ){
 		console.log( 'Execute SQL completed' );
-	alert( "Execute SQL completed" );
+	//alert( "Execute SQL completed" );
 	// display all profile	
 	var email = localStorage.getItem("email");
 		
@@ -112,7 +112,7 @@ if(document.getElementById("signup-btn")){
 function signup() {
   // debug:
   console.log("signup button pressed!");
-  alert("signup button pressed!");
+//  alert("signup button pressed!");
 	window.location.href = "signup.html";
 	
 }
@@ -137,7 +137,7 @@ function a() {
 	
   // debug:
   console.log("signup button pressed!");
-  alert("signup button pressed!");
+ /// alert("signup button pressed!");
 	
 	//Sql
 	db.transaction(
@@ -166,7 +166,7 @@ if(document.getElementById("login-btn")){
 function login() {
   // debug:
   console.log("login button pressed!");
-  alert("login button pressed!");
+  //alert("login button pressed!");
 	
 	//Getting input from the sign up page
 	var email = document.getElementById("email").value;
@@ -174,7 +174,7 @@ function login() {
 	
 		localStorage.setItem("email",email);
 		console.log(localStorage.getItem("email"));
-  		alert(localStorage.getItem("email"));
+  		//alert(localStorage.getItem("email"));
 	
 	
 	//Sql
@@ -224,7 +224,7 @@ var email = localStorage.getItem("email");
 function finish() {
   console.log("finish");
 	console.log("email :"+email);
-  alert("finish : " +email);
+  //alert("finish : " +email);
 	
 	//Next Page
 window.location.href = "Home.html";	
@@ -253,7 +253,7 @@ document.getElementById("takePhotoButton").addEventListener("click",takePhoto);
 
 function takePhoto() {
   console.log("take photo pressed");
-  alert("take photo pressed");
+  //alert("take photo pressed");
 
   // 1. choose options for the camera
   var cameraOptions = {
@@ -281,7 +281,7 @@ function onSuccess(filename) {
     // for it to work properly
     window.FilePath.resolveNativePath(filename, function(result) {
       imageURI = result;
-      alert("Successfully converted image path: " + result);
+     // alert("Successfully converted image path: " + result);
       console.log("Successfully converted image path: " + result);
 
       localStorage.setItem("photo", result);
@@ -290,7 +290,7 @@ function onSuccess(filename) {
       image.src = result;
 
     }, function (error) {
-      alert("error when converting file path!");
+      //alert("error when converting file path!");
     });
   }
   else {
@@ -303,7 +303,7 @@ function onSuccess(filename) {
     localStorage.setItem("photo", filename);
 
     // DEBUG STATEMENT
-    alert(localStorage);
+    //alert(localStorage);
  }
  // ---------------------------------------------------------------------------
 
@@ -324,7 +324,7 @@ if(document.getElementById("pickPhotoButton")){
 	
 	function pickPhotoFromGallery() {
   console.log("photo gallery pressed!");
-  alert("photo gallery pressed!");
+  //alert("photo gallery pressed!");
 
   // 1. choose options for the camera
   var cameraOptions = {
@@ -361,7 +361,7 @@ document.getElementById("logout").addEventListener("click",logout);
 function logout() {
 	console.log("Logging out");
     localStorage.removeItem("email");
-    alert("Logged Out");
+    //alert("Logged Out");
 }}
 
 //	  																			---------------------:  Geo Location  :---------------------- 
@@ -421,7 +421,7 @@ if(document.getElementById("profile-btn")){
 function profile() {
   // debug:
   console.log("profile button pressed!");
-  alert("profile button pressed!");
+  //alert("profile button pressed!");
 	window.location.href = "userprofile.html";
 	
 }
@@ -529,10 +529,10 @@ function showAllPressed() {
   											try {
    												 		var x = navigator.contacts.create({"displayName": item.name});
     																x.save();
-																alert("user saved!");
+																//alert("user saved!");
   													}
   											catch (err) {
-    																alert("error ");
+    																//alert("error ");
    																 console.log("ERROR " + err);
   																}
 
@@ -568,27 +568,3 @@ function showAllPressed() {
  
 							}}
 							
-														
-							
-
-	
-
-
-
-
-
-
-
-
-
-
-           
-	
-
-
-
-
-
-
-
-
